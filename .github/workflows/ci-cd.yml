@@ -33,6 +33,6 @@ jobs:
         script: |
           docker stop golang >/dev/null 2>&1 || true
           docker rm golang >/dev/null 2>&1 || true
-          docker pull matheusmc/golang-example:$GITHUB_SHA
-          docker run -d -p 8080:8080 --name golang matheusmc/golang-example:$GITHUB_SHA
+          docker pull matheusmc/golang-example:$GITHUB_SHA >/dev/null 2>&1 
+          docker run -d -p 8080:8080 --name golang matheusmc/golang-example:$GITHUB_SHA >/dev/null 2>&1
 
