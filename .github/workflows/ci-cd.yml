@@ -31,7 +31,7 @@ jobs:
         username: ${{ secrets.EC2_USERNAME }}
         key: ${{ secrets.EC2_PRIVATE_KEY }}
         script: |
-          docker stop sua-aplicacao || true
-          docker rm sua-aplicacao || true
+          docker stop golang || true
+          docker rm golang || true
           docker pull matheusmc/golang-example:$GITHUB_SHA
           docker run -d -p 8080:8080 --name golang matheusmc/golang-example:$GITHUB_SHA
