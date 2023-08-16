@@ -34,5 +34,5 @@ jobs:
           docker stop golang >/dev/null 2>&1 || true
           docker rm golang >/dev/null 2>&1 || true
           docker pull matheusmc/golang-example:$GITHUB_SHA
-          docker run -d -p 8080:8080 --name golang matheusmc/golang-example:c1beffac9a0aefd8f4a560269b5249ecfa6216f0
+          docker run -d -p 8080:8080 --name golang matheusmc/golang-example:$GITHUB_SHA
 
