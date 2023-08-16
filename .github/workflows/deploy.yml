@@ -21,8 +21,8 @@ jobs:
         
     - name: Build and push Docker image
       run: |
-        docker build -t seu-usuario-dockerhub/nome-da-imagem:$GITHUB_SHA .
-        docker push seu-usuario-dockerhub/nome-da-imagem:$GITHUB_SHA
+        docker build -t matheusmc/golang-example:$GITHUB_SHA .
+        docker push matheusmc/golang-example:$GITHUB_SHA
         
     - name: SSH into EC2 instance and deploy
       uses: appleboy/ssh-action@master
@@ -33,5 +33,5 @@ jobs:
         script: |
           docker stop sua-aplicacao || true
           docker rm sua-aplicacao || true
-          docker pull seu-usuario-dockerhub/nome-da-imagem:$GITHUB_SHA
-          docker run -d -p 8080:8080 --name sua-aplicacao seu-usuario-dockerhub/nome-da-imagem:$GITHUB_SHA
+          docker pull matheusmc/golang-example:$GITHUB_SHA
+          docker run -d -p 8080:8080 --name golang matheusmc/golang-example:$GITHUB_SHA
